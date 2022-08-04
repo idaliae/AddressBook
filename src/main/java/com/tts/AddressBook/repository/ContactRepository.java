@@ -1,7 +1,7 @@
 package com.tts.AddressBook.repository;
 
 import java.util.List;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import org.springframework.data.repository.CrudRepository;
 import com.tts.AddressBook.contact.Contact;

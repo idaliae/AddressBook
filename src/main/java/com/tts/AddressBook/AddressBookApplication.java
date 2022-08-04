@@ -42,22 +42,22 @@ public class AddressBookApplication {
 					log.info("Option 1 has been selected: Add an entry.\n");
 					Scanner contactInput = new Scanner(System.in);
 
-					log.info("Enter first name: \n");
+					System.out.println("Enter first name: \n");
 					String firstName = contactInput.next();
 					
-					log.info("Enter last name: \n");
+					System.out.println("Enter last name: \n");
 					String lastName = contactInput.next();
 					
-					log.info("Enter phone number: \n");
+					System.out.println("Enter phone number: \n");
 					String phoneNumber = contactInput.next();
 					
-					log.info("Enter email address: \n");
+					System.out.println("Enter email address: \n");
 					String email = contactInput.next();
 					
 					repository.save(new Contact(firstName, lastName, phoneNumber, email));
 					System.out.printf("New contact has been added: \nFirst Name: %s\n Last Name: %s\n Phone Number: %s\n Email: %s\n", firstName, lastName, phoneNumber, email);
 				
-//					contactInput.close();
+//					contactInput.close(); WARNING ->this was making the code break.
 					
 				} else if (userInput == 2){
 					log.info("Option 2 has been selected: Remove an entry.\n");
@@ -96,24 +96,24 @@ public class AddressBookApplication {
 //					if (searchType.equals(scanner("1"))) {
 //						System.out.println(repository.findByFirstName("%s", searchEntry));
 //					}
-					
-					
-					
+		
 					
 				} else if (userInput == 4){
-					System.out.println("Option 4 has been selected: Print address book.\n Here is your contacts list");
+					log.info("Option 4 has been selected: Print address book.\n Here is your contacts list");
 					System.out.println(repository.findAll());
 					
 				
-//				} else if (userInput == 5){
-//					System.out.println("Option 5 has been selected: Delete Book.\n");
-//					
-//				} else if (userInput == 6){
-//					System.out.println("Option 6 has been selected: Quit.\n");
-//					quit = true;
-//					System.out.println("Goodbye!");
-//					continue;
-////					System.exit(0);
+				} else if (userInput == 5){
+					log.info("Option 5 has been selected: Delete Book.\n");
+					repository.deleteAll();
+					System.out.println("Address Book has been cleared!");
+					
+				} else if (userInput == 6){
+					System.out.println("Option 6 has been selected: Quit.\n");
+					quit = true;
+					System.out.println("Goodbye!");
+					continue;
+//					System.exit(0);
 					
 				} else {
 					System.out.println("Please enter a valid option.");
@@ -121,11 +121,6 @@ public class AddressBookApplication {
 			}
 			scanner.close();
 		};
-	}
-
-	private Object scanner(String string) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
 
