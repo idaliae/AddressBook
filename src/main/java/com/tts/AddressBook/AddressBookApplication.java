@@ -63,26 +63,34 @@ public class AddressBookApplication {
 					log.info("Option 2 has been selected: Remove an entry.\n");
 					
 //					1. Show list of contacts by id (include firstName & lasName)
-//					System.out.println(repository.findAll());
+					System.out.println(repository.findAll());
 
 //					2. prompt user input for deletion
-//					System.out.println("Input contact ID to delete contact:\n");
+					System.out.println("Input contact ID to delete the contact entry:\n");
+					Scanner deleteScanner = new Scanner(System.in);
+					Long deleteInput = deleteScanner.nextLong();
+					deleteScanner.close();
 
 //					3. delete and "You have successfully deleted w/id contact"
+					Long id = deleteInput;
+					repository.deleteById(id);
 					
+//					4. reprint contacts and give "deletion successful" prompt
+					log.info("Your contact entry has successfully been deleted!");
+					System.out.println(repository.findAll());
 //				
-				} else if (userInput == 3){
-					System.out.println("Option 3 has been selected: Search for a specific entry.\n");
-					
-					System.out.println("Select the type of search you would like to perform using the corresponding numbers.");
-					System.out.println("1). Search by first name \n2). Search by last name \n3). Search by phone number \n4). Search by email\n");
-					
-					Scanner input = new Scanner(System.in);
-					
-					log.info("Enter search type number:");
-					Scanner searchType = input;
-					log.info("Enter your search:");
-					Scanner searchEntry = input;
+//				} else if (userInput == 3){
+//					System.out.println("Option 3 has been selected: Search for a specific entry.\n");
+//					
+//					System.out.println("Select the type of search you would like to perform using the corresponding numbers.");
+//					System.out.println("1). Search by first name \n2). Search by last name \n3). Search by phone number \n4). Search by email\n");
+//					
+//					Scanner input = new Scanner(System.in);
+//					
+//					log.info("Enter search type number:");
+//					Scanner searchType = input;
+//					log.info("Enter your search:");
+//					Scanner searchEntry = input;
 					
 //					TODO: Code is breaking here... fix
 //					if (searchType.equals(scanner("1"))) {
